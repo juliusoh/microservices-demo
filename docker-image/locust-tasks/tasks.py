@@ -29,15 +29,20 @@ class MetricsTaskSet(TaskSet):
     def on_start(self):
         self._deviceid = str(uuid.uuid4())
 
-    @task(1)
-    def login(self):
-        self.client.post(
-            '/login', {"deviceid": self._deviceid})
+
 
     @task(999)
-    def post_metrics(self):
+    def add_cart(self):
+        products = ["OLJCESPC7Z", "66VCHSJNUP", "1YMWWN1N4O", "L9ECAV7KIM", "2ZYFJ3GM2N", "0PUK6V6EV0", "LS4PSXUNUM", "9SIQT8TOJO", "6E92ZMYYFZ"]
+        for item in products:
+            self.client.post(
+            '/cart', {"product_id": item, "quantity": 1})
+
+
+    @task(999)
+    def post_checkout(self):
         self.client.post(
-            "/metrics", {"deviceid": self._deviceid, "timestamp": datetime.now()})
+            "/cart/checkout", {"email": "someone@example.com", "street_address": "1600+Amphitheatre+Parkway", "zip_code": 94043, "city": "Mountain View", "state": "CA", "country": "United States", "credit_card_number": "4432-8015-6152-0454", "credit_card_expiration_month": 1, "credit_card_expiration_year": 2023, "credit_card_cvv": 672})
 
 
 class MetricsLocust(FastHttpUser):

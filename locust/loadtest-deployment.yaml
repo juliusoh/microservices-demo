@@ -18,12 +18,12 @@ spec:
     spec:
       containers:
         - name: locust
-          image: so0k/locust-tasks:latest
+          image: gcr.io/gke-poc-julius/locust-tasks:latest
           env:
             - name: LOCUST_MODE
               value: master
             - name: TARGET_HOST
-              value: http://34.83.208.65
+              value: http://34.105.92.94
           ports:
             - name: loc-master-web
               containerPort: 8089
@@ -55,14 +55,14 @@ spec:
     spec:
       containers:
         - name: locust
-          image: so0k/locust-tasks:latest
+          image: gcr.io/gke-poc-julius/locust-tasks:latest
           env:
             - name: LOCUST_MODE
               value: worker
             - name: LOCUST_MASTER
               value: locust-master
             - name: TARGET_HOST
-              value: http://34.83.208.65
+              value: http://34.105.92.94
 ---
 kind: Service
 apiVersion: v1

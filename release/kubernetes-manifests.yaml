@@ -55,11 +55,11 @@ spec:
             command: ["/bin/grpc_health_probe", "-addr=:8080"]
         resources:
           requests:
-            cpu: 100m
-            memory: 64Mi
+            cpu: 250m
+            memory: 512Mi
           limits:
-            cpu: 200m
-            memory: 128Mi
+            cpu: 250m
+            memory: 512Mi
 ---
 apiVersion: v1
 kind: Service
@@ -124,11 +124,11 @@ spec:
           #   value: "jaeger-collector:14268"
           resources:
             requests:
-              cpu: 100m
-              memory: 64Mi
+              cpu: 250m
+              memory: 512Mi
             limits:
-              cpu: 200m
-              memory: 128Mi
+              cpu: 250m
+              memory: 512Mi
 ---
 apiVersion: v1
 kind: Service
@@ -184,11 +184,11 @@ spec:
           value: "1"
         resources:
           requests:
-            cpu: 100m
-            memory: 220Mi
+            cpu: 250m
+            memory: 512Mi
           limits:
-            cpu: 200m
-            memory: 450Mi
+            cpu: 250m
+            memory: 512Mi
 ---
 apiVersion: v1
 kind: Service
@@ -258,8 +258,8 @@ spec:
           - name: AD_SERVICE_ADDR
             value: "adservice:9555"
           # # ENV_PLATFORM: One of: local, gcp, aws, azure, onprem, alibaba
-          # # When not set, defaults to "local" unless running in GKE, otherwies auto-sets to gcp 
-          # - name: ENV_PLATFORM 
+          # # When not set, defaults to "local" unless running in GKE, otherwies auto-sets to gcp
+          # - name: ENV_PLATFORM
           #   value: "aws"
           - name: DISABLE_TRACING
             value: "1"
@@ -271,11 +271,11 @@ spec:
           #   value: "true"
           resources:
             requests:
-              cpu: 100m
-              memory: 64Mi
+              cpu: 250m
+              memory: 512Mi
             limits:
-              cpu: 200m
-              memory: 128Mi
+              cpu: 250m
+              memory: 512Mi
 ---
 apiVersion: v1
 kind: Service
@@ -340,11 +340,11 @@ spec:
             command: ["/bin/grpc_health_probe", "-addr=:50051"]
         resources:
           requests:
-            cpu: 100m
-            memory: 64Mi
+            cpu: 250m
+            memory: 512Mi
           limits:
-            cpu: 200m
-            memory: 128Mi
+            cpu: 250m
+            memory: 512Mi
 ---
 apiVersion: v1
 kind: Service
@@ -398,11 +398,11 @@ spec:
             command: ["/bin/grpc_health_probe", "-addr=:3550"]
         resources:
           requests:
-            cpu: 100m
-            memory: 64Mi
+            cpu: 250m
+            memory: 512Mi
           limits:
-            cpu: 200m
-            memory: 128Mi
+            cpu: 250m
+            memory: 512Mi
 ---
 apiVersion: v1
 kind: Service
@@ -442,11 +442,11 @@ spec:
           value: "redis-cart:6379"
         resources:
           requests:
-            cpu: 200m
-            memory: 64Mi
+            cpu: 250m
+            memory: 512Mi
           limits:
             cpu: 300m
-            memory: 128Mi
+            memory: 512Mi
         readinessProbe:
           initialDelaySeconds: 15
           exec:
@@ -516,7 +516,7 @@ spec:
         resources:
           requests:
             cpu: 300m
-            memory: 256Mi
+            memory: 512Mi
           limits:
             cpu: 500m
             memory: 512Mi
@@ -559,11 +559,11 @@ spec:
             command: ["/bin/grpc_health_probe", "-addr=:7000"]
         resources:
           requests:
-            cpu: 100m
-            memory: 64Mi
+            cpu: 250m
+            memory: 512Mi
           limits:
-            cpu: 200m
-            memory: 128Mi
+            cpu: 250m
+            memory: 512Mi
 ---
 apiVersion: v1
 kind: Service
@@ -617,11 +617,11 @@ spec:
             command: ["/bin/grpc_health_probe", "-addr=:50051"]
         resources:
           requests:
-            cpu: 100m
-            memory: 64Mi
+            cpu: 250m
+            memory: 512Mi
           limits:
-            cpu: 200m
-            memory: 128Mi
+            cpu: 250m
+            memory: 512Mi
 ---
 apiVersion: v1
 kind: Service
@@ -671,7 +671,7 @@ spec:
             cpu: 125m
           requests:
             cpu: 70m
-            memory: 200Mi
+            memory: 250mi
       volumes:
       - name: redis-data
         emptyDir: {}
@@ -720,7 +720,7 @@ spec:
         #   value: "jaeger-collector:14268"
         resources:
           requests:
-            cpu: 200m
+            cpu: 250m
             memory: 180Mi
           limits:
             cpu: 300m
