@@ -1,0 +1,17 @@
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"cloud.google.com/v1","kind":"BackendConfig","metadata":{"annotations":{},"name":"my-backendconfig","namespace":"default"},"spec":{"cdn":{"cachePolicy":{"includeHost":true,"includeProtocol":true,"includeQueryString":false},"enabled":true},"sessionAffinity":{"affinityCookieTtlSec":180,"affinityType":"GENERATED_COOKIE"}}}
+  creationTimestamp: "2022-05-20T04:49:54Z"
+  generation: 4
+  name: my-backendconfig
+  namespace: default
+  resourceVersion: "805039"
+  uid: c95ec609-0d75-4b6d-9886-9cae5a14a54f
+spec:
+  cdn:
+    enabled: true
+  sessionAffinity:
+    affinityType: GENERATED_COOKIE

@@ -38,11 +38,21 @@ class MetricsTaskSet(TaskSet):
             self.client.post(
             '/cart', {"product_id": item, "quantity": 1})
 
+    @task(999)
+    def get_frontend(self):
+        self.client.get('/')
 
     @task(999)
-    def post_checkout(self):
-        self.client.post(
-            "/cart/checkout", {"email": "someone@example.com", "street_address": "1600+Amphitheatre+Parkway", "zip_code": 94043, "city": "Mountain View", "state": "CA", "country": "United States", "credit_card_number": "4432-8015-6152-0454", "credit_card_expiration_month": 1, "credit_card_expiration_year": 2023, "credit_card_cvv": 672})
+    def get_product_by_id(self):
+        products = ["OLJCESPC7Z", "66VCHSJNUP", "1YMWWN1N4O", "L9ECAV7KIM", "2ZYFJ3GM2N", "0PUK6V6EV0", "LS4PSXUNUM", "9SIQT8TOJO", "6E92ZMYYFZ"]
+        for item in products:
+            self.client.get('/product/{}'.format(item))
+
+    @task(999)
+    def set_currency(self):
+        currencies = ["GBP", "EUR", "USD", "JPY", "CAD"]
+        for item in currencies:
+            self.client.post('/setCurrency', {"currency_code": item})
 
 
 class MetricsLocust(FastHttpUser):
